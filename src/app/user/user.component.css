@@ -1,0 +1,47 @@
+.navbar {
+    background: rgb(114, 227, 232);
+    background: linear-gradient(0deg, rgba(114, 227, 232, 1) 0%, rgba(84, 198, 245, 1) 100%);
+}
+
+.nav-item {
+    color: #1B4F72;
+}
+
+.nav-item.active {
+    background: rgb(90, 208, 217);
+    background: linear-gradient(343deg, rgba(90, 208, 217, 1) 19%, rgba(68, 162, 214, 1) 50%);
+    color: white;
+}
+
+.nav-item:hover {
+    background: rgb(90, 206, 217);
+    background: linear-gradient(343deg, rgba(90, 206, 217, 1) 19%, rgba(68, 214, 188, 1) 50%);
+}
+
+.btn-primary {
+    background: rgb(90, 208, 217);
+    background: linear-gradient(343deg, rgba(90, 208, 217, 1) 19%, rgba(68, 162, 214, 1) 50%);
+    border-style: none;
+}
+
+.btn-primary:hover {
+    background: rgb(90, 206, 217);
+    background: linear-gradient(343deg, rgba(90, 206, 217, 1) 19%, rgba(68, 214, 188, 1) 50%);
+}
+
+.btn-primary:active {
+    background: rgb(90, 139, 217);
+    background: linear-gradient(343deg, rgba(90, 139, 217, 1) 17%, rgba(68, 167, 214, 1) 50%);
+}
+
+.btn-info {
+    background: rgb(90, 208, 217) !important;
+    background: linear-gradient(343deg, rgba(90, 208, 217, 1) 19%, rgba(68, 162, 214, 1) 50%) !important;
+    border-style: none;
+}
+
+.btn-info:hover {
+    background: rgb(90, 206, 217) !important;
+    background: linear-gradient(343deg, rgba(90, 206, 217, 1) 19%, rgba(68, 214, 188, 1) 50%) !important;
+    border-style: none;
+}
