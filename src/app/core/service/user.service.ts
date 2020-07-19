@@ -10,7 +10,7 @@ import { CustomHttpResponse } from '../model/custom-http-response';
 })
 export class UserService {
   
-  private spring_port: string = environment.spring_port;
+  private spring_port: string = environment.SPRING_PORT;
 
   constructor(private http: HttpClient) { }
 

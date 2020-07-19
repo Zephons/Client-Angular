@@ -14,7 +14,7 @@ import { NotificationService } from '../core/service/notification.service';
 
 export class AnalysisComponent implements OnInit {
 
-  private express_port: string = environment.express_port;
+  private express_port: string = environment.EXPRESS_PORT;
   private socket = io(this.express_port);
 
   public analyses: Analysis[];
