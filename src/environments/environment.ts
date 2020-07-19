@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  SPRING_PORT: 'https://the-tweeth-sense-spring.herokuapp.com',
-  EXPRESS_PORT: 'http://localhost:3000'
+  // spring_port: process.env.SPRING_PORT,
+  // express_port: process.env.SPRING_PORT
 };
 
 /*

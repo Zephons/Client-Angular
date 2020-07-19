@@ -9,7 +9,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
   providedIn: 'root'
 })
 export class AuthenticationService {
-  public spring_port: string = environment.SPRING_PORT;
+  public spring_port: string = 'https://the-tweeth-sense-spring.herokuapp.com';
   private token: string;
   private loggedInUserName: string;
   private jwtHelper = new JwtHelperService();
