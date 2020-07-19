@@ -5,4 +5,4 @@ ngApp.use(express.static('./dist/client-angular'));
 ngApp.get('/*', function (request, response) {
     response.sendFile(path.join(__dirname, '/dist/client-angular/index.html'));
 });
-ngApp.listen(process.env.ANGULAR_PORT || 4200);
+ngApp.listen(process.env.PORT || 8080);
