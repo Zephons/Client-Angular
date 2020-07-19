@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  SPRING_PORT: 'http://localhost:8081',
-  EXPRESS_PORT: 'http://localhost:3000'
+  spring_port: process.env.SPRING_PORT || 'http://localhost:8080',
+  express_port: process.env.EXPRESS_PORT || 'http://localhost:3000'
 };
