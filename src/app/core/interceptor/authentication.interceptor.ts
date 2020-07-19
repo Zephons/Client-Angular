@@ -14,7 +14,7 @@ export class AuthenticationInterceptor implements HttpInterceptor {
   constructor(private authenticationService: AuthenticationService) {}
 
   intercept(httpRequest: HttpRequest<any>, httpHandler: HttpHandler): Observable<HttpEvent<any>> {
-    if (httpRequest.url.includes(`${this.authenticationService.springHost}/user/login`) || httpRequest.url.includes(`${this.authenticationService.springHost}/user/register`)) {
+    if (httpRequest.url.includes(`${this.authenticationService.spring_port}/user/login`) || httpRequest.url.includes(`${this.authenticationService.spring_port}/user/register`)) {
       return httpHandler.handle(httpRequest);
     }
     this.authenticationService.loadToken();

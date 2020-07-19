@@ -1,0 +1,14 @@
+<table class="table">
+    <tr>
+        <th>User name</th>
+        <th>Tweet</th>
+        <th>Created at</th>
+        <th>Score</th>
+    </tr>
+    <tr *ngFor="let a of analyses">
+        <td>{{a.user_name}}</td>
+        <td>{{a.tweet_text}}</td>
+        <td>{{a.created_at}}</td>
+        <td>{{a.score}}</td>
+    </tr>
+</table>

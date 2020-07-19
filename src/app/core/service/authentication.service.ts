@@ -9,7 +9,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
   providedIn: 'root'
 })
 export class AuthenticationService {
-  public springHost: string = environment.springUrl;
+  public spring_port: string = environment.SPRING_PORT;
   private token: string;
   private loggedInUserName: string;
   private jwtHelper = new JwtHelperService();
@@ -17,11 +17,11 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   public login(user: User): Observable<HttpResponse<User>> {
-    return this.http.post<User>(`${this.springHost}/user/login`, user, {observe: 'response'}); // the 2nd arguement is the request body; the meta data, namely the 3rd argument here is to ask for the whole reponse, including the header which contains the jwt token, otherwise without the last argument, by default it will only return a response body.
+    return this.http.post<User>(`${this.spring_port}/user/login`, user, {observe: 'response'}); // the 2nd arguement is the request body; the meta data, namely the 3rd argument here is to ask for the whole reponse, including the header which contains the jwt token, otherwise without the last argument, by default it will only return a response body.
   }
 
   public register(user: User): Observable<User> {
-    return this.http.post<User>(`${this.springHost}/user/register`, user);
+    return this.http.post<User>(`${this.spring_port}/user/register`, user);
   }
 
   public logOut(): void {

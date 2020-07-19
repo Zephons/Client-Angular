@@ -10,32 +10,32 @@ import { CustomHttpResponse } from '../model/custom-http-response';
 })
 export class UserService {
   
-  private springHost: string = environment.springUrl;
+  private spring_port: string = environment.SPRING_PORT;
 
   constructor(private http: HttpClient) { }
 
   public getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.springHost}/user/list`);
+    return this.http.get<User[]>(`${this.spring_port}/user/list`);
   }
 
   public addUser(formData: FormData): Observable<User> {
-    return this.http.post<User>(`${this.springHost}/user/add`, formData);
+    return this.http.post<User>(`${this.spring_port}/user/add`, formData);
   }
 
   public updateUser(formData: FormData): Observable<User> {
-    return this.http.post<User>(`${this.springHost}/user/update`, formData);
+    return this.http.post<User>(`${this.spring_port}/user/update`, formData);
   }
 
   public resetPassWord(email: string): Observable<CustomHttpResponse> {
-    return this.http.get<CustomHttpResponse>(`${this.springHost}/user/reset-password/${email}`);
+    return this.http.get<CustomHttpResponse>(`${this.spring_port}/user/reset-password/${email}`);
   }
 
   public updateProfileImage(formData: FormData): Observable<HttpEvent<User>> {
-    return this.http.post<User>(`${this.springHost}/user/update-profile-image`, formData, {reportProgress: true, observe: 'events'});
+    return this.http.post<User>(`${this.spring_port}/user/update-profile-image`, formData, {reportProgress: true, observe: 'events'});
   }
 
   public deleteUser(userName: string): Observable<CustomHttpResponse> {
-    return this.http.delete<CustomHttpResponse>(`${this.springHost}/user/delete/${userName}`);
+    return this.http.delete<CustomHttpResponse>(`${this.spring_port}/user/delete/${userName}`);
   }
 
   public addUsersToLocalCache(users: User[]): void {
@@ -58,8 +58,8 @@ export class UserService {
     formData.append('email', user.email);
     formData.append('profileImage', profileImage);
     formData.append('role', user.role);
-    formData.append('isActive', JSON.stringify(user.isActive));
-    formData.append('isNotLocked', JSON.stringify(user.isNotLocked));
+    formData.append('isActive', JSON.stringify(user.active));
+    formData.append('isNotLocked', JSON.stringify(user.notLocked));
     return formData;
   }
 }
