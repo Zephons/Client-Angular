@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // spring_port: process.env.SPRING_PORT,
-  // express_port: process.env.SPRING_PORT
+  spring_port: 'http://localhost:8080',
+  express_port: 'http://localhost:3000'
 };
 
 /*

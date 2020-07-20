@@ -14,7 +14,7 @@ import { NotificationService } from '../core/service/notification.service';
 
 export class AnalysisComponent implements OnInit {
 
-  private express_port: string = 'http://localhost:3000';
+  private express_port: string = environment.express_port;
   private socket = io(this.express_port);
 
   public analyses: Analysis[];
