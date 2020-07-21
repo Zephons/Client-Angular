@@ -1,5 +1,23 @@
-.chart-diplay{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 3em;
+.container {
+    margin: 20px;
+}
+
+.badge {
+    margin: 0 5px;
+}
+
+.btn-primary {
+    background: rgb(90, 208, 217);
+    background: linear-gradient(343deg, rgba(90, 208, 217, 1) 19%, rgba(68, 162, 214, 1) 50%);
+    border-style: none;
+}
+
+.btn-primary:hover {
+    background: rgb(90, 206, 217);
+    background: linear-gradient(343deg, rgba(90, 206, 217, 1) 19%, rgba(68, 214, 188, 1) 50%);
+}
+
+.btn-primary:active {
+    background: rgb(90, 139, 217);
+    background: linear-gradient(343deg, rgba(90, 139, 217, 1) 17%, rgba(68, 167, 214, 1) 50%);
 }

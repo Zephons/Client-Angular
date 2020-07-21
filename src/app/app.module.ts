@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { ChartsModule } from 'ng2-charts';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthenticationInterceptor } from './core/interceptor/authentication.interceptor';
@@ -27,7 +29,8 @@ import { AnalysisComponent } from './analysis/analysis.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NotificationModule
+    NotificationModule,
+    ChartsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true }],
   bootstrap: [AppComponent]

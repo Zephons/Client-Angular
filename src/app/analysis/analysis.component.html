@@ -1,14 +1,103 @@
-<table class="table">
-    <tr>
-        <th>User name</th>
-        <th>Tweet</th>
-        <th>Created at</th>
-        <th>Score</th>
-    </tr>
-    <tr *ngFor="let a of analyses">
-        <td>{{a.user_name}}</td>
-        <td>{{a.tweet_text}}</td>
-        <td>{{a.created_at}}</td>
-        <td>{{a.score}}</td>
-    </tr>
-</table>
+<div class="container">
+    <div class="row">
+        <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit(account.value)">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Twitter user: @</span>
+                </div>
+                <input type="text" class="form-control" id="twitterAdress" #account>
+            </div>
+            <button type="submit" class="btn btn-primary">Analyze!</button>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit('realDonaldTrump')">
+                        <h4 class="card-title">Donald J. Trump: @realDonaldTrump</h4>
+                        <button type="submit" class="btn btn-primary">Analyze this account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit('KimKardashian')">
+                        <h4 class="card-title">Kim Kardashian: @KimKardashian</h4>
+                        <button type="submit" class="btn btn-primary">Analyze this account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit('Pokemon')">
+                        <h4 class="card-title">Pokémon: @Pokemon</h4>
+                        <button type="submit" class="btn btn-primary">Analyze this account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit('Cristiano')">
+                        <h4 class="card-title">Cristiano Ronaldo: @Cristiano</h4>
+                        <button type="submit" class="btn btn-primary">Analyze this account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<hr>
+<div class="container">
+    <h3 *ngIf="data">Results: </h3>
+    <div class="row" *ngIf="chartVisible">
+        <div class="col-md-8">
+            <div>
+                <canvas baseChart [chartType]="'bar'" [datasets]="chartData" [labels]="chartLabels"
+                    [options]="chartOptions" [legend]="true" (chartClick)="onChartClick($event)">
+                </canvas>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"></canvas>
+        </div>
+    </div>
+    <div class="row">
+
+        <table class="table table-sm" *ngIf="data">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Date</th>
+                    <th>Tweet</th>
+                    <th>Positive Words</th>
+                    <th>Negative Words</th>
+                    <th>Sentiment</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let twit of data">
+                <tr>
+                    <!--<tr [className]="'table-danger'">-->
+                    <th scope="row">{{twit.created_at}}</th>
+                    <td>{{twit.tweet_text}}</td>
+                    <td><span class="badge badge-success"
+                            *ngFor="let positive of twit.sentiment.positive">{{positive}}</span></td>
+                    <td><span class="badge badge-danger"
+                            *ngFor="let negative of twit.sentiment.negative">{{negative}}</span></td>
+                    <td>{{twit.sentiment.comparative}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
