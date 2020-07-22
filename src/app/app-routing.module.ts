@@ -5,7 +5,6 @@ import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user/user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthenticationGuard } from './core/guard/authentication.guard';
-import { AnalysisComponent } from './analysis/analysis.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
