@@ -15,6 +15,7 @@ import { UserComponent } from './user/user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AnalysisComponent } from './analysis/analysis.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -35,8 +35,9 @@ export class UserComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.user = this.authenticationService.getUserFromLocalCache();
-    if (this.isAdminOrAssistant) {
-    this.getUsers(true);}
+    //if (this.isAdminOrAssistant) {
+    this.getUsers(true);
+    //}
   }
 
   public getUsers(showNotification: boolean): void {
@@ -46,18 +47,18 @@ export class UserComponent implements OnInit, OnDestroy {
         (response: User[]) => {
           this.userService.addUsersToLocalCache(response);
           // take out admins and superadmins for admin, take out all admins for assistant
-          switch (this.getUserRole()) {
-            case Role.SUPER_ADMIN: 
+          //switch (this.getUserRole()) {
+            //case Role.SUPER_ADMIN: 
               this.users = response;
-              break;
-            default:
-              this.users = [];
-              response.forEach(user => { 
-                if (user.role === Role.USER || user.role === Role.ASSISTANT) {
-                  this.users.push(user);}
-              });
-              break;
-          }
+              //break;
+            //default:
+              //this.users = [];
+              //response.forEach(user => { 
+                //if (user.role === Role.USER || user.role === Role.ASSISTANT) {
+                  //this.users.push(user);}
+              //});
+              //break;
+          //}
           this.refreshing = false;
           if (showNotification) {
             this.sendNotification(NotificationType.SUCCESS, `${this.users.length} user(s) loaded successfully.`);
@@ -247,6 +248,10 @@ export class UserComponent implements OnInit, OnDestroy {
     if (results.length === 0 || !searchTerm) {
       this.users = this.userService.getUsersFromLocalCache();
     }
+  }
+
+  public get isUser(): boolean {
+    return this.getUserRole() === Role.USER;
   }
 
   public get isAssistant(): boolean {
