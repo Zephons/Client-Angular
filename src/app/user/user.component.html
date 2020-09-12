@@ -330,7 +330,7 @@
                   <li class="list-group-item"></li>
                   <li class="list-group-item"><i class="fa fa-id-card float-right"></i>{{selectedUser?.userId}}
                   </li>
-                  <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{selectedUser?.email}}
+                  <li [hidden]="isUser" class="list-group-item"><i class="fa fa-envelope float-right"></i>{{selectedUser?.email}}
                   </li>
                   <li class="list-group-item"><i
                       class="fas fa-shield-alt float-right"></i>{{displayUserRole(selectedUser?.role)}}
