@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
       this.authenticationService.register(user).subscribe(
         (response:User) => {
           this.showLoading = false;
-          this.sendNotification(NotificationType.SUCCESS, `A new account was created for ${response.firstName}. Please check your email for password to log in.`)
+          this.sendNotification(NotificationType.SUCCESS, `A new account was created for ${response.firstName}. Please check your email (spam box) for password to log in.`)
         },
         (errorResponse: HttpErrorResponse) => {
           this.sendNotification(NotificationType.ERROR, errorResponse.error.message)
