@@ -28,6 +28,7 @@
     "http": "0.0.1-security",
     "ng2-charts": "^2.3.2",
     "rxjs": "~6.5.4",
+    "subsink": "^1.0.2",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
